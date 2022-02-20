@@ -36,11 +36,11 @@ public class JPQLMain {
             em.flush();
             em.clear();
 
-            String query = "select m from Member m join fetch m.team";
-            List<Member> results = em.createQuery(query, Member.class).getResultList();
+            String query = "select t from Team t join fetch t.members";
+            List<Team> results = em.createQuery(query, Team.class).getResultList();
 
-            for (Member result : results) {
-                System.out.println("result : " + result.getUsername() + " " + result.getTeam().getName());
+            for (Team team : results) {
+                System.out.println("Team :: " + team.getName() + " " + team.getMembers().size());
             }
 
             tx.commit();
