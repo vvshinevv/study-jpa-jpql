@@ -28,4 +28,8 @@ public class Team {
 
     protected Team() {
     }
+
+    public Team(String name) {
+        this.name = name;
+    }
 }
